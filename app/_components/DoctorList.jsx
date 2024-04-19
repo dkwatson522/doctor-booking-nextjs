@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function DoctorList({ doctorList, heading = "Popular Doctors" }) {
@@ -39,10 +40,11 @@ function DoctorList({ doctorList, heading = "Popular Doctors" }) {
                 <h2 className="text-gray-500 text-sm">
                   {doctor.attributes?.address}
                 </h2>
-
-                <h2 className="p-2 border-[1px] rounded-full mt-2 text-center text-primary cursor-pointer hover:bg-primary hover:text-white transition duration-300 ease-in-out text-[11px]">
-                  Book Now
-                </h2>
+                <Link href={`/details/${doctor.id}`} className="w-full">
+                  <h2 className="p-2 border-[1px] rounded-full mt-2 text-center text-primary cursor-pointer hover:bg-primary hover:text-white transition duration-300 ease-in-out text-[11px]">
+                    Book Now
+                  </h2>
+                </Link>
               </div>
             ))
           : // Skeleton Loading Effect
