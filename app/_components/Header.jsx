@@ -1,7 +1,14 @@
+"use client";
 import { Button } from "@/components/ui/button";
+import {
+  LoginLink,
+  LogoutLink,
+  useKindeBrowserClient,
+} from "@kinde-oss/kinde-auth-nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import UserAvatar from "./UserAvatar";
+import React, { useEffect } from "react";
 
 function Header() {
   const Menu = [
@@ -19,6 +26,10 @@ function Header() {
     },
   ];
 
+  const { user } = useKindeBrowserClient();
+
+  useEffect(() => {}, [user]);
+
   return (
     <div className="flex items-center justify-between p-4 shadow-sm">
       <div className="flex items-center gap-10">
@@ -35,7 +46,13 @@ function Header() {
             </Link>
           ))}
         </ul>
-        <Button>Get Started</Button>
+        {user ? (
+          <UserAvatar user={user} />
+        ) : (
+          <LoginLink>
+            <Button>Get Started</Button>
+          </LoginLink>
+        )}
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ function CategorySearch() {
                       height={40}
                     />
                     <label className="text-blue-600 text-small">
-                      {category.attributes?.name}
+                      {category.attributes?.name.split("_").join(" ")}
                     </label>
                   </Link>
                 )

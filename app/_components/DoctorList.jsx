@@ -27,7 +27,7 @@ function DoctorList({ doctorList, heading = "Popular Doctors" }) {
                         key={index}
                         className="text-[10px] text-primary bg-blue-100 p-1 rounded-full"
                       >
-                        {category?.attributes.name}
+                        {category?.attributes.name.split("_").join(" ")}
                       </h2>
                     )
                   )}

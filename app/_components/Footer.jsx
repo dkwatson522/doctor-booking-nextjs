@@ -1,11 +1,11 @@
-import React from "react";
 import Image from "next/image";
+import React from "react";
 
 function Footer() {
   return (
     <footer className="bg-gray-100">
-      <div className="mx-auto max-w-5xl flex flex-col text-center items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
-        <Image src="/logo.svg" alt="logo" width={180} height={80} />
+      <div className="mx-auto max-w-5xl justify-center text-center flex flex-col items-center px-4 py-16 sm:px-6 lg:px-8">
+        <Image src="/logo.svg" alt="logo" width={200} height={100} />
 
         <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
           We are a team of nurses, doctors, technologists and executives

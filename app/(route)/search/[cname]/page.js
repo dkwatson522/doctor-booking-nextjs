@@ -16,7 +16,7 @@ function Search({params}) {
   }
   return (
     <div className='mt-5'>
-      <DoctorList doctorList={doctors} heading={params.cname} />
+      <DoctorList doctorList={doctors} heading={params.cname.split('_').join(' ')} />
     </div>
   )
 }
