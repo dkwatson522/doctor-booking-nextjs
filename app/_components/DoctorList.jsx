@@ -22,16 +22,14 @@ function DoctorList({ doctorList, heading = "Popular Doctors" }) {
                   className="h-[200px] w-full rounded-lg object-cover"
                 />
                 <div className="mt-3 gap-1 items-baseline flex flex-col">
-                  {doctor.attributes?.categories?.data.map(
-                    (category, index) => (
-                      <h2
-                        key={index}
-                        className="text-[10px] text-primary bg-blue-100 p-1 rounded-full"
-                      >
-                        {category?.attributes.name.split("_").join(" ")}
-                      </h2>
-                    )
-                  )}
+                  <h2
+                    key={index}
+                    className="text-[10px] text-primary bg-blue-100 p-1 rounded-full"
+                  >
+                    {doctor.attributes?.category?.data?.attributes.name
+                      .split("_")
+                      .join(" ")}
+                  </h2>
                 </div>
                 <h2 className="font-bold text-lg">{doctor.attributes?.name}</h2>
                 <h2 className="text-primary text-sm">

@@ -15,7 +15,6 @@ function CategorySearch() {
 
   const getCategoryList = () => {
     GlobalApi.getCategory().then((response) => {
-      console.log(response.data);
       setCategoryList(response.data);
     });
   };
@@ -60,7 +59,10 @@ function CategorySearch() {
             )
           : // Skeleton Loading Effect
             Array.from({ length: 6 }).map((_, index) => (
-              <div className="animate-pulse bg-gray-200 w-[130px] h-[130px] m-2 rounded-lg"></div>
+              <div
+                key={index}
+                className="animate-pulse bg-gray-200 w-[130px] h-[130px] m-2 rounded-lg"
+              ></div>
               // </div>
             ))}
       </div>

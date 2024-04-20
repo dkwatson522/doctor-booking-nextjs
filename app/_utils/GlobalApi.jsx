@@ -29,8 +29,17 @@ const getDoctors = async () => {
 const getDoctorsByCategory = async (category) => {
   try {
     const response = await axiosClient.get(
-      "/doctors?filters[categories][name][$in]=" + category + "&populate=*"
+      "/doctors?filters[category][name][$in]=" + category + "&populate=*"
     );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getDoctorById = async (id) => {
+  try {
+    const response = await axiosClient.get("/doctors/" + id + "?populate=*");
     return response.data;
   } catch (error) {
     console.error(error);
@@ -41,4 +50,5 @@ export default {
   getCategory,
   getDoctors,
   getDoctorsByCategory,
+  getDoctorById,
 };

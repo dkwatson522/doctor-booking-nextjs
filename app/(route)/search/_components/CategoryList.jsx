@@ -23,7 +23,7 @@ function CategoryList() {
   useEffect(() => {
     getCategoryList();
 
-    console.log(category);
+    // console.log(category);
   }, []);
 
   const getCategoryList = () => {

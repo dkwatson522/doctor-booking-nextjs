@@ -1,10 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  LoginLink,
-  LogoutLink,
-  useKindeBrowserClient,
-} from "@kinde-oss/kinde-auth-nextjs";
+import { LoginLink, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import UserAvatar from "./UserAvatar";
@@ -36,11 +32,8 @@ function Header() {
         <Image src="/logo.svg" alt="logo" width={180} height={80} />
         <ul className="md:flex gap-8 hidden">
           {Menu.map((item, index) => (
-            <Link href={item.path}>
-              <li
-                className="hover:text-primary cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
-                key={index}
-              >
+            <Link key={index} href={item.path}>
+              <li className="hover:text-primary cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">
                 {item.name}
               </li>
             </Link>
