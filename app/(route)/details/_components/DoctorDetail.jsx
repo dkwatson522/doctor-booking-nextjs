@@ -34,12 +34,12 @@ function DoctorDetail({ doctor }) {
             {doctor.attributes?.category?.data?.attributes?.name}
           </h2>
 
-          {/* <div className="flex gap-3">
-            {socialMediaList.map((item, index) => (
-              <Image src={item.icon} key={index} width={30} height={30} />
-            ))}
-          </div> */}
-          {/* <BookAppointment doctor={doctor} /> */}
+          <Button
+            className="mt-3 rounded-full"
+            onClick={() => console.log("Book Appointment")}
+          >
+            Book Appointment
+          </Button>
         </div>
       </div>
 

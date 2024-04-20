@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import GlobalApi from "@/app/_utils/GlobalApi";
 import Image from "next/image";
 import Link from "next/link";
-import { GraduationCap } from "lucide-react";
 
 function DoctorSuggestionList({ doctor }) {
   const [doctorList, setDoctorList] = useState([]);
@@ -51,8 +50,7 @@ function DoctorSuggestionList({ doctor }) {
               </h2>
               <h2 className="font-medium text-sm">{doctor.attributes.name}</h2>
               <h2 className="text-primary text-xs flex gap-2">
-                <GraduationCap />
-                {doctor.attributes.years_of_experience}
+                {doctor.attributes.years_of_experience} Years
               </h2>
             </div>
           </Link>
