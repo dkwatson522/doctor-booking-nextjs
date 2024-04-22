@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, MapPin } from "lucide-react";
+import BookAppointment from "./BookAppointment";
 
 function DoctorDetail({ doctor }) {
   return (
@@ -33,16 +34,10 @@ function DoctorDetail({ doctor }) {
           <h2 className="text-[10px] bg-blue-100 p-1 rounded-full px-2 text-primary">
             {doctor.attributes?.category?.data?.attributes?.name}
           </h2>
-
-          <Button
-            className="mt-3 rounded-full"
-            onClick={() => console.log("Book Appointment")}
-          >
-            Book Appointment
-          </Button>
+          <BookAppointment doctor={doctor} />
         </div>
       </div>
-
+      {/* About Doctor */}
       <div className="p-3 border-[1px] rounded-lg mt-5">
         <h2 className="font-bold text-[20px]">About Me</h2>
         <p className="text-gray-500 tracking-wide mt-2">

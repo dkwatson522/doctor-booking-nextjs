@@ -46,9 +46,24 @@ const getDoctorById = async (id) => {
   }
 };
 
+const bookAppointment = async (data) => {
+  try {
+    const response = await axiosClient.post("/appointments", data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+// const bookAppointment = (data) => {
+//   const response = axiosClient.post("/appointments", data);
+//   console.log("Hello", response);
+//   return response;
+// };
+
 export default {
   getCategory,
   getDoctors,
   getDoctorsByCategory,
   getDoctorById,
+  bookAppointment,
 };

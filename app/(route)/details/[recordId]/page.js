@@ -31,7 +31,6 @@ function Details({ params }) {
         </div>
       </div>
     </div>
-
   )
 }
 
