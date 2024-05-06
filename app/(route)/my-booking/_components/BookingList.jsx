@@ -3,8 +3,20 @@ import { Calendar, Clock, MapPin } from "lucide-react";
 import moment from "moment/moment";
 import Image from "next/image";
 import React from "react";
+import CancelAppointment from "./CancelAppointment";
+import GlobalApi from "@/app/_utils/GlobalApi";
+import { toast } from "sonner";
 
-function BookingList({ bookingList, expired }) {
+function BookingList({ bookingList, expired, updateRecord }) {
+  const onDeleteBooking = (booking) => {
+    GlobalApi.cancelAppointment(booking.id).then((response) => {
+      if (response) {
+        toast("Booking Deleted Successfully!");
+        updateRecord();
+      }
+    });
+  };
+
   return (
     <div>
       <div className="flex flex-col">
@@ -28,12 +40,9 @@ function BookingList({ bookingList, expired }) {
                 <h2 className="font-bold text-[18px] flex justify-between items-center">
                   {booking.attributes.doctor?.data?.attributes?.name}
                   {!expired && (
-                    <Button
-                      variant="outline"
-                      className="text-red-500 border-red-500 hover:bg-red-200"
-                    >
-                      Cancel Appointment
-                    </Button>
+                    <CancelAppointment
+                      onContinueClick={() => onDeleteBooking(booking)}
+                    />
                   )}
                 </h2>
                 <h2 className="flex gap-2 text-gray-500">

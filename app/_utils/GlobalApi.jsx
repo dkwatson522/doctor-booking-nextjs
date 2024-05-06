@@ -64,6 +64,15 @@ const getUserBookingList = async (userEmail) => {
   return response.data;
 };
 
+const cancelAppointment = async (id) => {
+  try {
+    const response = await axiosClient.delete("/appointments/" + id);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const sendEmail = async (data) => {
   try {
     const response = await axios.post("/api/sendEmail", data);
@@ -81,4 +90,5 @@ export default {
   bookAppointment,
   sendEmail,
   getUserBookingList,
+  cancelAppointment,
 };
