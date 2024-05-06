@@ -54,11 +54,24 @@ const bookAppointment = async (data) => {
     console.error(error);
   }
 };
-// const bookAppointment = (data) => {
-//   const response = axiosClient.post("/appointments", data);
-//   console.log("Hello", response);
-//   return response;
-// };
+
+const getUserBookingList = async (userEmail) => {
+  const response = await axiosClient.get(
+    "/appointments?[filters][email][$eq]=" +
+      userEmail +
+      "&populate[doctor][populate][image][populate][0]=[url]&populate=*"
+  );
+  return response.data;
+};
+
+const sendEmail = async (data) => {
+  try {
+    const response = await axios.post("/api/sendEmail", data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export default {
   getCategory,
@@ -66,4 +79,6 @@ export default {
   getDoctorsByCategory,
   getDoctorById,
   bookAppointment,
+  sendEmail,
+  getUserBookingList,
 };

@@ -61,11 +61,13 @@ function BookAppointment({ doctor }) {
         note: note,
       },
     };
-    console.log("Data", data);
 
     GlobalApi.bookAppointment(data).then((response) => {
       console.log("Appointment Booked", response);
       if (response) {
+        GlobalApi.sendEmail(data).then((response) => {
+          console.log("Email Sent", response);
+        });
         toast("Appointment Confirmation sent to your email.");
       }
     });

@@ -7,6 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import Link from "next/link";
 
 function UserAvatar({ user }) {
   const getInitials = (user) => {
@@ -40,16 +41,17 @@ function UserAvatar({ user }) {
           )}
         </PopoverTrigger>
         <PopoverContent>
-          <LogoutLink>
-            <ul className="flex flex-col gap-2">
-              <Button variant="ghost">Profile</Button>
-              <Button variant="ghost">My Booking</Button>
-              <Button variant="ghost">
-                Logout
-                <LogoutLink variant="outline" />
-              </Button>
-            </ul>
-          </LogoutLink>
+          <ul className="flex flex-col gap-2">
+            <Link
+              href={"/my-booking"}
+              className="cursur-pointer hover:bg-slate-100 p-2 rounded-md"
+            >
+              My Booking
+            </Link>
+            <li className="cursur-pointer hover:bg-slate-100 p-2 rounded-md">
+              <LogoutLink> Logout </LogoutLink>
+            </li>
+          </ul>
         </PopoverContent>
       </Popover>
     </div>
